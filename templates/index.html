@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MCQ Generator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="main-container">
+
+    <div class="card">
+
+        <h1 class="heading">MCQ Generator</h1>
+
+        <p class="desc">
+            This site generates multiple-choice questions (MCQs)
+            based on the provided PDF.
+        </p>
+
+        <form method="POST" enctype="multipart/form-data" class="form-box">
+
+            <input type="file" name="file" required>
+
+            <select name="count">
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+            </select>
+
+            <button type="submit">Generate MCQs</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+body {
+    font-family: Arial;
+    background: #f3f0ff;
+}
+
+.title {
+    text-align: center;
+    color: #5a00b3;
+}
+
+.results-container {
+    width: 70%;
+    margin: auto;
+}
+
+.mcq-card {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+    border-left: 6px solid purple;
+}
+
+.option {
+    display: block;
+    margin: 8px 0;
+}

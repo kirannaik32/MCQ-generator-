@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MCQ Quiz</title>
+    <link rel="stylesheet" href="/static/result.css">
+
+    <script>
+        function showResults() {
+            let score = 0;
+            let total = document.querySelectorAll(".mcq-card").length;
+
+            document.querySelectorAll(".mcq-card").forEach((card) => {
+                let correct = card.dataset.answer;
+                let selected = card.querySelector("input:checked");
+
+                if (selected && selected.value === correct) {
+                    score++;
+                }
+
+                card.querySelector(".answer").style.display = "block";
+            });
+
+            document.getElementById("score").innerText =
+                "Your Score: " + score + " / " + total;
+        }
+    </script>
+</head>
+
+<body>
+
+<h1 class="title">MCQ Quiz</h1>
+
+<div class="results-container">
+
+{% for mcq in mcqs %}
+<div class="mcq-card" data-answer="{{ mcq.answer }}">
+
+    <p class="question">
+        <b>Q{{ loop.index }}:</b> {{ mcq.question }}
+    </p>
+
+    {% set qid = loop.index %}
+
+    {% for opt in mcq.options %}
+        <label class="option">
+            <input type="radio" name="q{{ qid }}" value="{{ opt }}">
+            {{ opt }}
+        </label><br>
+    {% endfor %}
+
+    <p class="answer" style="display:none;">
+        <b>Correct Answer:</b> {{ mcq.answer }}
+    </p>
+
+</div>
+{% endfor %}
+
+<button class="submit-btn" onclick="showResults()">Show Result</button>
+
+<h2 id="score"></h2>
+
+<a class="again" href="/">Generate Again</a>
+
+</div>
+
+</body>
+</html>
